@@ -15,8 +15,8 @@ export async function getProductsWithStock(): Promise<Product[]> {
     ]);
     return products.map((p, i) => ({
       ...p,
-      inStock: stockValues[i] !== null ? stockValues[i] === "true" : p.inStock,
-      price: priceValues[i] !== null ? parseFloat(priceValues[i]!) : p.price,
+      inStock: stockValues[i] != null ? String(stockValues[i]) === "true" : p.inStock,
+      price: priceValues[i] != null ? Number(priceValues[i]) : p.price,
     }));
   } catch {
     return products;
@@ -34,8 +34,8 @@ export async function getProductWithStock(id: string): Promise<Product | undefin
     ]);
     return {
       ...product,
-      inStock: stockValue !== null ? stockValue === "true" : product.inStock,
-      price: priceValue !== null ? parseFloat(priceValue) : product.price,
+      inStock: stockValue != null ? String(stockValue) === "true" : product.inStock,
+      price: priceValue != null ? Number(priceValue) : product.price,
     };
   } catch {
     return product;
