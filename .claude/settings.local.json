@@ -4,7 +4,10 @@
       "Read(//Users/ja4demartino/.nvm/versions/**)",
       "Bash(brew list *)",
       "Read(//usr/local/**)",
-      "Read(//opt/homebrew/**)"
+      "Read(//opt/homebrew/**)",
+      "Read(//Users/ja4demartino/Desktop/**)",
+      "Read(//Users/ja4demartino/Downloads/**)",
+      "Bash(ls -t ~/Desktop/*.png ~/Downloads/*.png)"
     ]
   }
 }

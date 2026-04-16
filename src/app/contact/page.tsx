@@ -1,4 +1,6 @@
-import { Mail, Phone, MapPin, Clock, MessageCircle } from "lucide-react";
+import Image from "next/image";
+import { Mail, Phone, Clock } from "lucide-react";
+import QuoteForm from "@/components/QuoteForm";
 
 export const metadata = {
   title: "Contact | Service Motors AU",
@@ -8,10 +10,10 @@ export const metadata = {
 
 const contactMethods = [
   {
-    icon: MessageCircle,
-    label: "WhatsApp",
+    icon: Phone,
+    label: "WhatsApp or SMS",
     value: "0433 541 686",
-    description: "Fastest way to reach us — message or call.",
+    description: "Fastest way to reach us.",
     href: "https://wa.me/61433541686",
     cta: "Open WhatsApp",
     external: true,
@@ -25,24 +27,6 @@ const contactMethods = [
     cta: "Send Email",
     external: false,
   },
-  {
-    icon: MapPin,
-    label: "Location",
-    value: "Sydney, NSW",
-    description: "Serving Sydney and surrounding areas.",
-    href: null,
-    cta: null,
-    external: false,
-  },
-  {
-    icon: Clock,
-    label: "Hours",
-    value: "Mon – Sat",
-    description: "8:00 AM – 6:00 PM. Closed Sundays.",
-    href: null,
-    cta: null,
-    external: false,
-  },
 ];
 
 export default function ContactPage() {
@@ -52,87 +36,101 @@ export default function ContactPage() {
       <div className="bg-[#0A0A0A] py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 mb-3">
-            <Phone className="w-6 h-6 text-[#DC2626]" />
-            <span className="text-[#DC2626] text-xs font-semibold uppercase tracking-widest">
+            <Phone className="w-8 h-8 text-[#DC2626]" />
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-white uppercase">
               Get In Touch
-            </span>
+            </h1>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-white">
-            Contact Us
-          </h1>
           <p className="mt-3 text-gray-400 max-w-lg">
-            Book a service, ask about parts, or just say hello. We&apos;re a
+            Book a service, ask about parts, or request a quote. We&apos;re a
             message away.
           </p>
         </div>
       </div>
 
-      {/* Contact Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {contactMethods.map((method) => {
-            const Icon = method.icon;
-            return (
-              <div
-                key={method.label}
-                className="bg-[#F5F5F5] rounded-xl p-6 flex flex-col gap-4"
-              >
-                <div className="w-12 h-12 bg-[#DC2626] rounded-lg flex items-center justify-center">
-                  <Icon className="w-5 h-5 text-white" />
+
+        {/* Two-column: form + contact info */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16">
+
+          {/* Quote Form */}
+          <QuoteForm />
+
+          {/* Contact info */}
+          <div className="space-y-4">
+            {contactMethods.map((method) => {
+              const Icon = method.icon;
+              return (
+                <div
+                  key={method.label}
+                  className="bg-white rounded-xl border border-gray-100 shadow-sm p-5 flex items-start gap-4"
+                >
+                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 ${method.label === "WhatsApp or SMS" ? "bg-white border border-gray-200" : "bg-[#DC2626]"}`}>
+                    {method.label === "WhatsApp or SMS" ? (
+                      <Image src="/whatsapp.png" alt="WhatsApp" width={28} height={28} />
+                    ) : (
+                      <Icon className="w-5 h-5 text-white" />
+                    )}
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-xs font-semibold text-[#DC2626] uppercase tracking-widest mb-0.5">
+                      {method.label}
+                    </p>
+                    <p className="font-bold text-[#0A0A0A] text-sm">{method.value}</p>
+                    <p className="text-gray-600 text-sm mt-0.5">{method.description}</p>
+                  </div>
+                  {method.href && method.cta && (
+                    <a
+                      href={method.href}
+                      target={method.external ? "_blank" : undefined}
+                      rel={method.external ? "noopener noreferrer" : undefined}
+                      className="shrink-0 self-center bg-[#0A0A0A] hover:bg-[#DC2626] text-white text-xs font-semibold px-3 py-2 rounded-lg transition-colors"
+                    >
+                      {method.cta}
+                    </a>
+                  )}
                 </div>
-                <div>
-                  <p className="text-xs font-semibold text-[#DC2626] uppercase tracking-widest mb-1">
-                    {method.label}
-                  </p>
-                  <p className="font-bold text-[#0A0A0A] text-base">
-                    {method.value}
-                  </p>
-                  <p className="text-gray-500 text-sm mt-1">
-                    {method.description}
-                  </p>
-                </div>
-                {method.href && method.cta && (
-                  <a
-                    href={method.href}
-                    target={method.external ? "_blank" : undefined}
-                    rel={method.external ? "noopener noreferrer" : undefined}
-                    className="mt-auto inline-block bg-[#0A0A0A] hover:bg-[#DC2626] text-white text-sm font-semibold px-4 py-2 rounded text-center transition-colors"
-                  >
-                    {method.cta}
-                  </a>
-                )}
+              );
+            })}
+
+            {/* Hours */}
+            <div className="px-1 pt-2">
+              <div className="flex items-center gap-2 mb-3">
+                <Clock className="w-4 h-4 text-[#DC2626]" />
+                <p className="text-xs font-semibold text-[#DC2626] uppercase tracking-widest">Hours</p>
               </div>
-            );
-          })}
+              <ul className="space-y-1.5 text-sm w-48">
+                {[
+                  { day: "Mon", hours: "7:00 AM – 5:00 PM" },
+                  { day: "Tue", hours: "7:00 AM – 5:00 PM" },
+                  { day: "Wed", hours: "7:00 AM – 5:00 PM" },
+                  { day: "Thu", hours: "7:00 AM – 5:00 PM" },
+                  { day: "Fri", hours: "7:00 AM – 5:00 PM" },
+                  { day: "Sat", hours: "7:00 AM – 12:00 PM" },
+                  { day: "Sun", hours: "Closed" },
+                ].map(({ day, hours }) => (
+                  <li key={day} className="flex justify-between gap-6">
+                    <span className="font-medium text-[#0A0A0A]">{day}</span>
+                    <span className={hours === "Closed" ? "text-[#DC2626] font-semibold" : "text-gray-500"}>{hours}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
 
-        {/* Big CTA */}
-        <div className="bg-[#0A0A0A] rounded-2xl p-10 text-center">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">
-            Book your service today
-          </h2>
-          <p className="text-gray-400 max-w-md mx-auto mb-8">
-            The quickest way to get your car booked in is via WhatsApp. Message
-            us your vehicle details and we&apos;ll confirm a time.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href="https://wa.me/61433541686"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#DC2626] hover:bg-[#B91C1C] text-white font-semibold px-8 py-3 rounded transition-colors"
-            >
-              <MessageCircle className="w-5 h-5" />
-              WhatsApp — 0433 541 686
-            </a>
-            <a
-              href="mailto:servicemotorsau@gmail.com"
-              className="inline-flex items-center gap-2 border border-gray-600 hover:border-gray-400 text-gray-300 hover:text-white font-semibold px-8 py-3 rounded transition-colors"
-            >
-              <Mail className="w-5 h-5" />
-              servicemotorsau@gmail.com
-            </a>
-          </div>
+        {/* Google Maps */}
+        <div className="rounded-2xl overflow-hidden border border-gray-100 shadow-md">
+          <iframe
+            src="https://www.google.com/maps?q=5+Finch+Dr,+Eastgardens+NSW+2036&output=embed"
+            width="100%"
+            height="420"
+            style={{ border: 0, display: "block" }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Service Motors AU location"
+          />
         </div>
       </div>
     </div>
