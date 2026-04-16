@@ -78,7 +78,7 @@ export async function sendQuote(data: QuoteData): Promise<{ ok: boolean; error?:
 
   try {
     const { error } = await resend.emails.send({
-      from: "Service Motors AU <quotes@servicemotorsau.com>",
+      from: "Service Motors AU <onboarding@resend.dev>",
       to:   "servicemotorsau@gmail.com",
       replyTo: data.phone ? undefined : undefined,
       subject,
