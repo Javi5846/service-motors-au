@@ -121,7 +121,12 @@ export default function ShopGrid({ products }: Props) {
                 <span className="absolute top-3 left-3 bg-[#DC2626] text-white text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-widest">
                   {product.category}
                 </span>
-                {!product.inStock && (
+                {product.inStock ? (
+                  <span className="absolute top-3 right-3 inline-flex items-center gap-1 bg-green-50 text-green-600 text-[11px] font-bold px-2.5 py-1 rounded-full">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-500 inline-block" />
+                    In Stock
+                  </span>
+                ) : (
                   <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
                     <span className="bg-white text-[#DC2626] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">
                       Out of Stock

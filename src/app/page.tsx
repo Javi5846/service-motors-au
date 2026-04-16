@@ -82,7 +82,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <span className="inline-block text-white text-2xl sm:text-3xl font-extrabold mb-3">
-              What Customers Say
+              WHAT CUSTOMERS SAY
             </span>
           </div>
           <TestimonialsCarousel />
