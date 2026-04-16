@@ -1,6 +1,8 @@
 import { ShoppingBag } from "lucide-react";
-import { products } from "@/data/products";
+import { getProductsWithStock } from "@/lib/stock";
 import ShopGrid from "@/components/ShopGrid";
+
+export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "Shop | Service Motors AU",
@@ -8,7 +10,8 @@ export const metadata = {
     "Buy quality automotive parts online — oils, filters, brake pads and more.",
 };
 
-export default function ShopPage() {
+export default async function ShopPage() {
+  const products = await getProductsWithStock();
   return (
     <div className="min-h-screen bg-white">
       {/* Page Header */}

@@ -1,8 +1,11 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, CheckCircle, MessageCircle, Mail, ShieldCheck } from "lucide-react";
-import { products } from "@/data/products";
+import { getProductWithStock } from "@/lib/stock";
+import { products } from "@/data/products"; // needed for generateStaticParams
 import ProductGallery from "@/components/ProductGallery";
+
+export const dynamic = "force-dynamic";
 
 export function generateStaticParams() {
   return products.map((p) => ({ id: p.id }));
@@ -20,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 
 export default async function ProductPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const product = products.find((p) => p.id === id);
+  const product = await getProductWithStock(id);
 
   if (!product) notFound();
 
