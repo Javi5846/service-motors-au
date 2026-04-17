@@ -102,11 +102,11 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
               <div className="flex flex-col gap-2">
                 <div className="flex items-center gap-2 text-gray-400 text-sm">
                   <ShieldCheck className="w-4 h-4 text-[#DC2626]" />
-                  OEM quality — sourced and checked by our mechanics
+                  OEM quality
                 </div>
                 <div className="flex items-center gap-2 text-sm font-semibold text-[#0A0A0A]">
                   <span className="w-2 h-2 rounded-full bg-green-500 inline-block" />
-                  Same Day Collection Available
+                  Same day collection available — 2036 Eastgardens
                 </div>
               </div>
             </div>

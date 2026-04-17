@@ -21,13 +21,13 @@ export default function NavbarClient({ isAdmin }: { isAdmin: boolean }) {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
             <Image
-              src="/logo.png"
+              src="/logo-icon.png"
               alt="Service Motors AU"
-              width={108}
-              height={108}
+              width={56}
+              height={56}
               className="rounded-lg"
             />
-            <span className="font-[family-name:var(--font-bebas)] text-3xl tracking-wide hidden sm:inline text-[#0A0A0A]">
+            <span className="font-[family-name:var(--font-bebas)] text-3xl tracking-wide text-[#0A0A0A]">
               Service Motors <span className="text-[#DC2626]">AU</span>
             </span>
           </Link>

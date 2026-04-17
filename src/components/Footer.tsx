@@ -7,13 +7,13 @@ export default function Footer() {
   return (
     <footer className="bg-[#0A0A0A] border-t border-[#1F1F1F] text-gray-400">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
               <Image
-                src="/logo.png"
+                src="/logo-icon.png"
                 alt="Service Motors AU"
                 width={44}
                 height={44}
@@ -23,7 +23,7 @@ export default function Footer() {
                 Service Motors <span className="text-[#DC2626]">AU</span>
               </span>
             </div>
-            <p className="text-xs uppercase tracking-widest text-gray-600 mb-2">Follow us</p>
+            <p className="text-xs uppercase tracking-widest text-gray-600 mb-2 mt-6">Follow us</p>
             <a
               href="https://www.instagram.com/servicemotorsau?igsh=YXZ2YndvY2hqaXE0&utm_source=qr"
               target="_blank"

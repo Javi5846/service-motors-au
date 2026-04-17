@@ -31,7 +31,7 @@ export default async function ShopPage() {
           </p>
           <div className="flex items-center gap-2 mt-2 text-sm font-semibold text-white">
             <span className="w-2 h-2 rounded-full bg-green-500 inline-block" />
-            Same Day Collection Available
+            Order and collect
           </div>
         </div>
       </div>
