@@ -36,9 +36,21 @@ export default function PrivacyPage() {
         <p>
           If any form which collects your personal data allows you to voluntarily provide additional information, we seek this information because we think it will help us to give you a better quality service. You do not have to provide such information if you do not wish to do so.
         </p>
-        <p>
-          We also collect personal data from cookies, which we explain more about below.
-        </p>
+        <section>
+          <h2 className="text-base font-bold text-[#0A0A0A] mb-2">Cookies</h2>
+          <p>We use two types of cookies on this site:</p>
+          <ul className="list-disc pl-5 mt-2 space-y-1">
+            <li>
+              <span className="font-semibold text-[#0A0A0A]">Essential cookies</span> — required for the site to function (e.g. admin session management). These cannot be disabled.
+            </li>
+            <li>
+              <span className="font-semibold text-[#0A0A0A]">Analytics &amp; advertising cookies</span> — optional cookies used to measure site performance and deliver relevant advertising (e.g. Google Ads, Google Analytics). These are only set if you click &ldquo;Accept all&rdquo;.
+            </li>
+          </ul>
+          <p className="mt-2">
+            You can choose your cookie preference at any time by clearing your browser&apos;s local storage. We handle your data in accordance with the Privacy Act 1988 (Cth) and the Australian Privacy Principles.
+          </p>
+        </section>
 
         <section>
           <h2 className="text-base font-bold text-[#0A0A0A] mb-2">Complaints</h2>
