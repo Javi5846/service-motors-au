@@ -94,7 +94,7 @@ export default function ContactPage() {
             })}
 
             {/* Hours */}
-            <div className="px-1 pt-2">
+            <div className="px-1 pt-2 flex flex-col items-center lg:items-start">
               <div className="flex items-center gap-2 mb-3">
                 <Clock className="w-4 h-4 text-[#DC2626]" />
                 <p className="text-xs font-semibold text-[#DC2626] uppercase tracking-widest">Hours</p>

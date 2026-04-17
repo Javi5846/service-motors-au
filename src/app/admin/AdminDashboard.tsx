@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { toggleStock, logout, updatePrice, bulkSetStock } from "./actions";
+import { toggleStock, updatePrice, bulkSetStock } from "./actions";
 import type { Product } from "@/data/products";
 
 export default function AdminDashboard({ products: initial }: { products: Product[] }) {
@@ -61,21 +61,7 @@ export default function AdminDashboard({ products: initial }: { products: Produc
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <div className="max-w-4xl mx-auto">
-
-        {/* Header */}
-        <div className="flex items-center justify-between mb-8">
-          <div>
-            <h1 className="text-2xl font-extrabold text-[#0A0A0A]">Stock Manager</h1>
-            <p className="text-gray-500 text-sm mt-1">Service Motors AU</p>
-          </div>
-          <form action={logout}>
-            <button type="submit" className="text-sm text-gray-500 hover:text-[#DC2626] font-semibold transition-colors">
-              Log out
-            </button>
-          </form>
-        </div>
+    <div>
 
         {/* Stats */}
         <div className="grid grid-cols-2 gap-4 mb-6">
@@ -182,7 +168,6 @@ export default function AdminDashboard({ products: initial }: { products: Produc
         <p className="text-center text-xs text-gray-400 mt-6">
           Changes go live on the shop instantly.
         </p>
-      </div>
     </div>
   );
 }

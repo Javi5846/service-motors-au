@@ -1,7 +1,8 @@
 import { cookies } from "next/headers";
-import { login } from "./actions";
+import { login, logout } from "./actions";
 import AdminDashboard from "./AdminDashboard";
 import { getProductsWithStock } from "@/lib/stock";
+import { Settings } from "lucide-react";
 
 export const metadata = {
   title: "Admin | Service Motors AU",
@@ -50,5 +51,35 @@ export default async function AdminPage() {
   }
 
   const products = await getProductsWithStock();
-  return <AdminDashboard products={products} />;
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Page Header */}
+      <div className="bg-[#0A0A0A] py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex items-end justify-between">
+          <div>
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-white mb-3">ADMIN</h1>
+            <div className="flex items-center gap-2">
+              <Settings className="w-5 h-5 text-[#DC2626]" />
+              <span className="text-[#DC2626] text-xs font-semibold uppercase tracking-widest">
+                Stock Manager
+              </span>
+            </div>
+          </div>
+          <form action={logout}>
+            <button
+              type="submit"
+              className="text-sm text-gray-400 hover:text-white font-semibold transition-colors"
+            >
+              Log out
+            </button>
+          </form>
+        </div>
+      </div>
+
+      {/* Dashboard */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        <AdminDashboard products={products} />
+      </div>
+    </div>
+  );
 }
