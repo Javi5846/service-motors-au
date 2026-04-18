@@ -18,7 +18,7 @@ export default function HomePage() {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-white text-2xl sm:text-3xl font-bold mb-6 whitespace-nowrap">
+          <p className="text-white text-xl sm:text-3xl font-bold mb-6">
             MOBILE SERVICING &amp; AUTO PARTS
           </p>
 

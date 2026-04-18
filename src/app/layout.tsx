@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -54,6 +55,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${bebasNeue.variable} h-full`}
     >
       <body className="min-h-full flex flex-col bg-white text-[#0A0A0A]">
+        <ScrollToTop />
         <Navbar />
         <main className="flex-1 pt-20">{children}</main>
         <Footer />
