@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
+import ServicesCarousel from "@/components/ServicesCarousel";
 
 
 export default function HomePage() {
@@ -22,16 +23,6 @@ export default function HomePage() {
             MOBILE SERVICING &amp; AUTO PARTS
           </p>
 
-          {/* Service bullets */}
-          <ul className="flex flex-col gap-3 mb-8">
-            {["OIL CHANGE", "FILTERS", "BRAKE PADS", "ROTORS"].map((point) => (
-              <li key={point} className="flex items-center gap-3 text-white text-lg font-normal tracking-wide">
-                <span className="w-2 h-2 rounded-full bg-white inline-block shrink-0" />
-                {point}
-              </li>
-            ))}
-          </ul>
-
           {/* CTAs */}
           <div className="flex flex-wrap gap-4 mb-16">
             <Link
@@ -49,6 +40,16 @@ export default function HomePage() {
           </div>
         </div>
 
+      </section>
+
+      {/* Services */}
+      <section className="py-16 bg-gray-50 border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-center text-xs font-semibold uppercase tracking-widest text-gray-400 mb-10">
+            Our Services
+          </p>
+          <ServicesCarousel />
+        </div>
       </section>
 
       {/* Brands */}
