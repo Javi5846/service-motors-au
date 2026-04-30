@@ -43,9 +43,9 @@ export default function HomePage() {
       </section>
 
       {/* Services */}
-      <section className="py-16 bg-gray-50 border-b border-gray-100">
+      <section className="py-16 bg-[#0A0A0A]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-xs font-semibold uppercase tracking-widest text-gray-400 mb-10">
+          <p className="text-center text-xs font-semibold uppercase tracking-widest text-gray-600 mb-10">
             Our Services
           </p>
           <ServicesCarousel />

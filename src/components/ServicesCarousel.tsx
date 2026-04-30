@@ -14,7 +14,7 @@ const services = [
     icon: CircleDot,
     title: "Brake Pads & Rotors",
     description:
-      "Professional brake pad and rotor replacement to keep you safe on the road. We bring the parts and tools to you.",
+      "Professional brake pad and rotor replacement to keep you safe on the road.",
   },
   {
     icon: ClipboardCheck,

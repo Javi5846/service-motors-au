@@ -382,6 +382,33 @@ export const products: Product[] = [
     ],
   },
   {
+    id: "INA-529058620",
+    name: "INA V-Ribbed Belt Set 529 0586 20",
+    shortDescription: "Complete V-ribbed belt set for VW Amarok and Transporter TDI engines with A/C.",
+    description:
+      "The INA 529 0586 20 is a complete V-ribbed belt set designed for Volkswagen Amarok and Transporter TDI and BiTDI engines with air conditioning. Includes all components needed for a full belt drive service in one kit.",
+    price: 180,
+    category: "Belt Kit",
+    inStock: true,
+    image: "/products/INA-529058620.png",
+    images: ["/products/INA-529058620.png"],
+    specs: [
+      { label: "Brand", value: "INA" },
+      { label: "Part Number", value: "529 0586 20" },
+      { label: "Kit Contains", value: "Belt Tensioner | V-ribbed Belt | Deflection/Guide Pulley | Alternator Freewheel Clutch | V-ribbed Belt FB 6XPK1550" },
+      { label: "Belt Tensioner", value: "534 0164 10" },
+      { label: "Deflection/Guide Pulley", value: "532 0468 10" },
+      { label: "Alternator Freewheel Clutch", value: "535 0124 10" },
+      { label: "V-ribbed Belt", value: "FB 6XPK1550" },
+      { label: "A/C", value: "With A/C" },
+    ],
+    compatible: [
+      "Volkswagen Amarok (2010–2022) — 2.0 TDI & 2.0 BiTDI (122–180 CV) with A/C",
+      "Volkswagen Transporter T5 (2009–2015) — 2.0 TDI (84–180 CV) with A/C",
+      "Volkswagen Transporter T6 (2015–2019) — 2.0 TDI & BiTDI (84–180 CV) with A/C",
+    ],
+  },
+  {
     id: "W610-3",
     name: "MANN Filter W 610/3",
     shortDescription: "Spin-on oil filter for Mazda, Kia and Honda engines.",
