@@ -12,6 +12,8 @@ const CATEGORIES = [
   { label: "Air Filters", value: "Air Filter" },
   { label: "Cabin Filters", value: "Cabin Filter" },
   { label: "Oil", value: "Oil" },
+  { label: "Drive Belts", value: "Drive Belts" },
+  { label: "Other", value: "Other" },
 ];
 
 const SORT_OPTIONS = [

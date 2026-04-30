@@ -73,6 +73,11 @@ export default function Footer() {
                   Privacy Statement
                 </Link>
               </li>
+              <li>
+                <Link href="/terms" className="hover:text-white transition-colors">
+                  Terms &amp; Conditions
+                </Link>
+              </li>
             </ul>
           </div>
 

@@ -18,7 +18,7 @@ const services = [
   },
   {
     icon: ClipboardCheck,
-    title: "Pre-Purchase Inspection",
+    title: "Pre-Purchase Inspection¹",
     description:
       "Thinking of buying a used car? We'll inspect it thoroughly so you know exactly what you're getting before you commit.",
   },
@@ -50,11 +50,13 @@ export default function ServicesCarousel() {
 
       {/* Mobile: carousel 1 at a time */}
       <div className="md:hidden">
-        <ServiceCard service={services[index]} />
+        <div className="px-8">
+          <ServiceCard service={services[index]} square />
+        </div>
         <div className="flex items-center justify-center gap-4 mt-6">
           <button
             onClick={prev}
-            className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center hover:border-[#DC2626] hover:text-[#DC2626] transition-colors"
+            className="w-9 h-9 rounded-full border border-gray-200 bg-white hover:border-[#DC2626] hover:text-[#DC2626] flex items-center justify-center transition-colors"
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
@@ -69,7 +71,7 @@ export default function ServicesCarousel() {
           </div>
           <button
             onClick={next}
-            className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center hover:border-[#DC2626] hover:text-[#DC2626] transition-colors"
+            className="w-9 h-9 rounded-full border border-gray-200 bg-white hover:border-[#DC2626] hover:text-[#DC2626] flex items-center justify-center transition-colors"
           >
             <ChevronRight className="w-4 h-4" />
           </button>
@@ -79,14 +81,14 @@ export default function ServicesCarousel() {
   );
 }
 
-function ServiceCard({ service }: { service: typeof services[0] }) {
+function ServiceCard({ service, square }: { service: typeof services[0]; square?: boolean }) {
   const Icon = service.icon;
   return (
-    <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex flex-col gap-4">
-      <div className="w-12 h-12 bg-[#DC2626] rounded-xl flex items-center justify-center shrink-0">
-        <Icon className="w-6 h-6 text-white" />
+    <div className={`bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex flex-col gap-4 ${square ? "aspect-square justify-center" : ""}`}>
+      <div className="w-14 h-14 bg-[#DC2626] rounded-xl flex items-center justify-center shrink-0">
+        <Icon className="w-7 h-7 text-white" />
       </div>
-      <h3 className="font-extrabold text-[#0A0A0A] text-base">{service.title}</h3>
+      <h3 className="font-extrabold text-[#0A0A0A] text-lg">{service.title}</h3>
       <p className="text-gray-500 text-sm leading-relaxed">{service.description}</p>
     </div>
   );

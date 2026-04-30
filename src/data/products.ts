@@ -388,7 +388,7 @@ export const products: Product[] = [
     description:
       "The INA 529 0586 20 is a complete V-ribbed belt set designed for Volkswagen Amarok and Transporter TDI and BiTDI engines with air conditioning. Includes all components needed for a full belt drive service in one kit.",
     price: 180,
-    category: "Belt Kit",
+    category: "Drive Belts",
     inStock: true,
     image: "/products/INA-529058620.png",
     images: ["/products/INA-529058620.png"],

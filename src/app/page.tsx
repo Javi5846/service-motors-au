@@ -45,10 +45,14 @@ export default function HomePage() {
       {/* Services */}
       <section className="py-16 bg-[#0A0A0A]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-xs font-semibold uppercase tracking-widest text-gray-600 mb-10">
+          <p className="text-center text-base md:text-xs font-semibold uppercase tracking-widest text-white md:text-gray-600 mb-10">
             Our Services
           </p>
           <ServicesCarousel />
+          <p className="text-gray-600 text-xs mt-6 text-center">
+            ¹ Pre-purchase inspection subject to{" "}
+            <a href="/terms" className="text-[#DC2626] hover:underline">terms &amp; conditions</a>.
+          </p>
         </div>
       </section>
 
@@ -82,7 +86,7 @@ export default function HomePage() {
       <section className="py-20 bg-[#0A0A0A]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <span className="inline-block text-white text-2xl sm:text-3xl font-extrabold mb-3">
+            <span className="inline-block text-white text-base font-semibold uppercase tracking-widest mb-3">
               WHAT CUSTOMERS SAY
             </span>
           </div>

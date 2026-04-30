@@ -45,11 +45,11 @@ export default function TestimonialsCarousel() {
 
   return (
     <div>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8 sm:px-0 px-8">
         {shown.map((review, i) => (
           <div
             key={`${review.name}-${i}`}
-            className={`bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex flex-col gap-4 h-[300px] sm:h-[340px] ${i > 0 ? "hidden sm:flex" : "flex"}`}
+            className={`bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex flex-col gap-4 h-[320px] sm:h-[340px] ${i > 0 ? "hidden sm:flex" : "flex"}`}
           >
             <div className="flex gap-0.5">
               {[...Array(5)].map((_, j) => (
