@@ -120,7 +120,14 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-base font-bold text-[#0A0A0A] mb-2">9. Limitation of Liability</h2>
+          <h2 className="text-base font-bold text-[#0A0A0A] mb-2">9. Pricing</h2>
+          <p>
+            Prices displayed on our website and provided in quotes are indicative and may vary due to supplier pricing, promotions, or market conditions. The price confirmed at the time of booking or purchase is the final price for that transaction. We reserve the right to update pricing at any time without prior notice.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-base font-bold text-[#0A0A0A] mb-2">10. Limitation of Liability</h2>
           <p>
             To the extent permitted by law, the total liability of Service Motors AU for any claim arising from a service or product shall not exceed the amount paid for that specific service or product.
           </p>
@@ -130,21 +137,21 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-base font-bold text-[#0A0A0A] mb-2">10. Australian Consumer Law</h2>
+          <h2 className="text-base font-bold text-[#0A0A0A] mb-2">11. Australian Consumer Law</h2>
           <p>
             Nothing in these Terms and Conditions excludes, restricts, or modifies any rights or remedies you may have under the Australian Consumer Law (Schedule 2 of the Competition and Consumer Act 2010). Statutory guarantees applicable to consumers cannot be excluded.
           </p>
         </section>
 
         <section>
-          <h2 className="text-base font-bold text-[#0A0A0A] mb-2">11. Governing Law</h2>
+          <h2 className="text-base font-bold text-[#0A0A0A] mb-2">12. Governing Law</h2>
           <p>
             These terms are governed by the laws of New South Wales, Australia. Any disputes arising from these terms shall be subject to the exclusive jurisdiction of the courts of NSW.
           </p>
         </section>
 
         <section>
-          <h2 className="text-base font-bold text-[#0A0A0A] mb-2">12. Contact</h2>
+          <h2 className="text-base font-bold text-[#0A0A0A] mb-2">13. Contact</h2>
           <ul className="space-y-1">
             <li><span className="font-medium text-[#0A0A0A]">Javier De Martino</span> (trading as Service Motors AU)</li>
             <li>ABN: 64 716 968 248</li>
