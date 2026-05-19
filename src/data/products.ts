@@ -19,7 +19,7 @@ export const products: Product[] = [
     shortDescription: "Premium cartridge oil filter with sealing rings.",
     description:
       "The MANN-FILTER HU 7008 z is a high-quality cartridge oil filter designed for optimal engine protection. It features a robust filter element with excellent filtration efficiency, reliably removing contaminants from engine oil to extend engine life. Comes complete with sealing rings for a secure, leak-free installation.",
-    price: 22,
+    price: 27,
     category: "Oil Filter",
     inStock: true,
     image: "/products/HU7008z.png",
@@ -50,7 +50,7 @@ export const products: Product[] = [
     shortDescription: "Premium cartridge oil filter with sealing ring.",
     description:
       "The MANN-FILTER HU 6013 z is a high-quality cartridge oil filter offering excellent engine protection. Its robust filter element efficiently removes contaminants from engine oil, helping to extend engine life. Comes complete with a sealing ring for a secure, leak-free installation.",
-    price: 24,
+    price: 29,
     category: "Oil Filter",
     inStock: true,
     image: "/products/HU6013z.png",
@@ -77,7 +77,7 @@ export const products: Product[] = [
     shortDescription: "Premium panel air filter for engine protection.",
     description:
       "The MANN-FILTER C 30 005 is a high-quality panel air filter that protects the engine from dust, dirt and other airborne contaminants. It ensures optimal airflow to the engine, improving performance and fuel efficiency while extending engine life.",
-    price: 37,
+    price: 42,
     category: "Air Filter",
     inStock: true,
     image: "/products/C30005.png",
@@ -110,7 +110,7 @@ export const products: Product[] = [
     shortDescription: "Heavy-duty panel air filter for the VW Amarok.",
     description:
       "The MANN-FILTER C 32 010 is a heavy-duty panel air filter designed specifically for the VW Amarok (2H). It delivers superior filtration performance, protecting the engine from dust and debris in demanding conditions — both on and off road.",
-    price: 48,
+    price: 53,
     category: "Air Filter",
     inStock: true,
     image: "/products/C32010.png",
@@ -132,7 +132,7 @@ export const products: Product[] = [
     shortDescription: "Cabin filter keeping fresh, clean air inside your vehicle.",
     description:
       "The MANN-FILTER CU 2842 is a high-quality cabin air filter that effectively traps dust, pollen, and fine particles before they enter the vehicle interior. It ensures clean, fresh air for driver and passengers — improving comfort and protecting against airborne contaminants.",
-    price: 25,
+    price: 30,
     category: "Cabin Filter",
     inStock: true,
     image: "/products/CU2842.png",
@@ -159,7 +159,7 @@ export const products: Product[] = [
     shortDescription: "100% Synthetic 5W-30 engine oil. ACEA C3. 5 litres.",
     description:
       "High performance 100% Synthetic lubricant specially designed for latest generation of Diesel and Gasoline engines, Euro 4, 5 or 6 emission regulation compliant, requiring an engine oil with high HTHS (> 3.5 mPa.s) viscosity and \"Mid SAPS\" with reduced content of Sulfated Ash (≤ 0.8%), Phosphorus (0.07% ≤ x ≤ 0.09%) and Sulfur (≤ 0.3%). Compatible with catalytic converters (CAT) and Diesel Particulate Filters (DPF). Particularly suitable for the latest generation of BMW, MERCEDES, PORSCHE and VAG (VW, AUDI, SEAT, SKODA) vehicles. Suitable also for any type of Diesel or Gasoline engines calling for ACEA C3 lubricant. Before use always refer to the owner manual or handbook of the vehicle.",
-    price: 105,
+    price: 110,
     category: "Oil",
     inStock: true,
     image: "/products/8100x-clean-5l.png",
@@ -191,7 +191,7 @@ export const products: Product[] = [
     shortDescription: "Spin-on oil filter for Mazda petrol engines.",
     description:
       "The MANN-FILTER W 6018 is a high-quality spin-on oil filter offering reliable engine protection for a wide range of Mazda petrol engines. Its robust construction and efficient filtration media effectively remove contaminants from engine oil, extending engine life and maintaining performance.",
-    price: 16,
+    price: 21,
     category: "Oil Filter",
     inStock: true,
     image: "/products/W6018.png",
@@ -221,7 +221,7 @@ export const products: Product[] = [
     shortDescription: "Cartridge oil filter with sealing kit for BMW engines.",
     description:
       "The MANN-FILTER HU 815/2 x is a premium cartridge oil filter designed for a wide range of BMW petrol and diesel engines. It provides excellent filtration efficiency and comes with a complete sealing kit for a secure, leak-free installation.",
-    price: 17,
+    price: 22,
     category: "Oil Filter",
     inStock: true,
     image: "/products/HU815-2x.png",
@@ -250,7 +250,7 @@ export const products: Product[] = [
     shortDescription: "Tall cartridge oil filter for Audi, VW and more.",
     description:
       "The MANN-FILTER HU 7012 z is a high-quality cartridge oil filter built for demanding diesel and petrol engines across the Audi, VW and other European brands. Its extended height provides superior filtration capacity, reliably protecting the engine from contaminants.",
-    price: 24,
+    price: 29,
     category: "Oil Filter",
     inStock: true,
     image: "/products/HU7012z.png",
@@ -278,7 +278,7 @@ export const products: Product[] = [
     shortDescription: "Spin-on oil filter for Lexus, Toyota and Suzuki engines.",
     description:
       "The MANN-FILTER W 68/3 is a reliable spin-on oil filter designed for a broad range of Japanese petrol engines including Lexus, Toyota and Suzuki. Its robust construction ensures effective filtration and consistent engine protection across a wide variety of models.",
-    price: 15,
+    price: 20,
     category: "Oil Filter",
     inStock: true,
     image: "/products/W68-3.png",
@@ -305,7 +305,7 @@ export const products: Product[] = [
     shortDescription: "Spin-on oil filter for Suzuki Jimny and more.",
     description:
       "The MANN-FILTER W 67/2 is a compact spin-on oil filter delivering reliable engine protection for Suzuki Jimny II and similar light 4WD engines. Its robust construction and quality filtration media ensure consistent performance and engine longevity.",
-    price: 18,
+    price: 23,
     category: "Oil Filter",
     inStock: true,
     image: "/products/W67-2.png",
@@ -330,7 +330,7 @@ export const products: Product[] = [
     shortDescription: "Spin-on oil filter for Lexus, Toyota HiLux and more.",
     description:
       "The MANN-FILTER W 712/83 is a high-quality spin-on oil filter designed for Lexus and Toyota engines including the popular HiLux. It provides excellent filtration efficiency and reliable engine protection across a wide range of applications.",
-    price: 15,
+    price: 20,
     category: "Oil Filter",
     inStock: true,
     image: "/products/W712-83.png",
@@ -357,7 +357,7 @@ export const products: Product[] = [
     shortDescription: "Spin-on oil filter for Mazda petrol engines including 3, 5, 6 and MX series.",
     description:
       "The Ryco Z632 is a quality spin-on oil filter designed for a wide range of Mazda petrol engines. Features a built-in relief valve for consistent oil pressure protection. Genuine Ryco quality with new vehicle warranty protection.",
-    price: 18,
+    price: 23,
     category: "Oil Filter",
     inStock: true,
     image: "/products/Z632.png",
@@ -387,7 +387,7 @@ export const products: Product[] = [
     shortDescription: "Spin-on oil filter for Hyundai, Mitsubishi and Kia engines.",
     description:
       "The Ryco Z79A is a high-quality spin-on oil filter designed for a wide range of Hyundai, Mitsubishi and Kia petrol engines. Features a built-in relief valve and anti-drain back valve to ensure consistent oil pressure and prevent dry starts. Genuine Ryco quality with new vehicle warranty protection.",
-    price: 18,
+    price: 23,
     category: "Oil Filter",
     inStock: true,
     image: "/products/Z79A-0.png",
@@ -417,7 +417,7 @@ export const products: Product[] = [
     shortDescription: "Complete V-ribbed belt set for VW Amarok and Transporter TDI engines with A/C.",
     description:
       "The INA 529 0586 20 is a complete V-ribbed belt set designed for Volkswagen Amarok and Transporter TDI and BiTDI engines with air conditioning. Includes all components needed for a full belt drive service in one kit.",
-    price: 180,
+    price: 185,
     category: "Drive Belts",
     inStock: true,
     image: "/products/INA-529058620.png",
@@ -444,7 +444,7 @@ export const products: Product[] = [
     shortDescription: "Spin-on oil filter for Mazda, Kia and Honda engines.",
     description:
       "The MANN-FILTER W 610/3 is a versatile spin-on oil filter compatible with a wide range of Asian petrol engines. It offers dependable filtration performance for Mazda, Kia and many Honda models, keeping engines clean and well protected.",
-    price: 12,
+    price: 17,
     category: "Oil Filter",
     inStock: true,
     image: "/products/W610-3.png",
@@ -471,7 +471,7 @@ export const products: Product[] = [
     shortDescription: "Spin-on oil filter for Mazda, Nissan, Subaru and more.",
     description:
       "The MANN-FILTER W 67/1 is a reliable spin-on oil filter compatible with a broad range of Japanese vehicles. It provides quality engine protection for Mazda, Nissan and Subaru engines, offering excellent value for regular servicing.",
-    price: 12,
+    price: 17,
     category: "Oil Filter",
     inStock: true,
     image: "/products/W67-1.png",
