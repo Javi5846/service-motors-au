@@ -99,10 +99,7 @@ export default function ShopGrid({ products }: Props) {
               <div className={`w-16 h-16 rounded-full flex items-center justify-center ${active ? "bg-white/20" : "bg-white/10"}`}>
                 <Icon className="w-8 h-8" />
               </div>
-              <div className="text-center">
-                <p className="font-bold text-lg leading-tight">{label}</p>
-                <p className={`text-xs mt-0.5 ${active ? "text-red-100" : "text-gray-500"}`}>{sub}</p>
-              </div>
+              <p className="font-bold text-xl">{label}</p>
             </button>
           );
         })}
