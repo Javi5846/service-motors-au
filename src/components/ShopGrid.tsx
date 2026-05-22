@@ -83,7 +83,7 @@ export default function ShopGrid({ products }: Props) {
   return (
     <>
       {/* Category group squares */}
-      <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 mb-10">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
         {GROUPS.map(({ id, label, Icon, sub }) => {
           const active = activeGroup === id;
           return (
