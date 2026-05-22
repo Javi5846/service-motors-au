@@ -520,4 +520,29 @@ export const products: Product[] = [
       "Subaru Liberty / XV (selected models/engines)",
     ],
   },
+  {
+    id: "W712-73",
+    name: "MANN Filter W 712/73",
+    shortDescription: "Spin-on oil filter for Mazda 3, 5, 6 and compatible engines.",
+    description:
+      "The MANN-FILTER W 712/73 is a quality spin-on oil filter designed for Mazda petrol engines including the popular Mazda 3, 5 and 6. Delivers reliable filtration performance and engine protection across a wide range of applications.",
+    price: 20,
+    category: "Oil Filter",
+    inStock: true,
+    image: "/products/W712-73.png",
+    images: ["/products/W712-73.png", "/products/W712-73-2.png"],
+    specs: [
+      { label: "Brand", value: "MANN-FILTER" },
+      { label: "Part Number", value: "W 712/73" },
+      { label: "Filter Type", value: "Spin-on Oil Filter" },
+      { label: "Dimensions", value: "A = 76 mm | B = 62 mm | C = 71 mm | H = 93 mm" },
+      { label: "Thread (G)", value: "3/4-16 UNF" },
+      { label: "OEM Quality", value: "Yes" },
+    ],
+    compatible: [
+      "Mazda 3 (selected models/engines)",
+      "Mazda 5 (selected models/engines)",
+      "Mazda 6 (selected models/engines)",
+    ],
+  },
 ];
