@@ -3,26 +3,41 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown, Filter, Droplets, Cog, Package } from "lucide-react";
 import type { Product } from "@/data/products";
 
-const CATEGORIES = [
-  { label: "All", value: "all" },
-  { label: "Oil Filters", value: "Oil Filter" },
-  { label: "Air Filters", value: "Air Filter" },
+type GroupId = "filters" | "oil" | "belts" | "other";
+
+const GROUPS: Array<{
+  id: GroupId;
+  label: string;
+  Icon: React.ElementType;
+  categories: string[];
+  sub: string;
+}> = [
+  { id: "filters", label: "Filters",      Icon: Filter,    categories: ["Oil Filter", "Air Filter", "Cabin Filter"], sub: "Oil · Air · Cabin" },
+  { id: "oil",     label: "Oil",          Icon: Droplets,  categories: ["Oil"],                                      sub: "Engine & synthetic" },
+  { id: "belts",   label: "Belts & Kits", Icon: Cog,       categories: ["Drive Belts"],                              sub: "V-ribbed & timing" },
+  { id: "other",   label: "Other",        Icon: Package,   categories: ["Other"],                                    sub: "Accessories & more" },
+];
+
+const ALL_PILLS = [
+  { label: "All",           value: "all" },
+  { label: "Oil Filters",   value: "Oil Filter" },
+  { label: "Air Filters",   value: "Air Filter" },
   { label: "Cabin Filters", value: "Cabin Filter" },
-  { label: "Oil", value: "Oil" },
-  { label: "Drive Belts", value: "Drive Belts" },
-  { label: "Other", value: "Other" },
+  { label: "Oil",           value: "Oil" },
+  { label: "Drive Belts",   value: "Drive Belts" },
+  { label: "Other",         value: "Other" },
 ];
 
 const SORT_OPTIONS = [
-  { label: "Sort by", value: "default" },
-  { label: "Category", value: "category" },
+  { label: "Sort by",          value: "default" },
+  { label: "Category",         value: "category" },
   { label: "Price: Low to High", value: "price-asc" },
   { label: "Price: High to Low", value: "price-desc" },
-  { label: "Name: A → Z", value: "az" },
-  { label: "Name: Z → A", value: "za" },
+  { label: "Name: A → Z",      value: "az" },
+  { label: "Name: Z → A",      value: "za" },
 ];
 
 interface Props {
@@ -42,44 +57,98 @@ function sortProducts(products: Product[], sort: string): Product[] {
 }
 
 export default function ShopGrid({ products }: Props) {
+  const [activeGroup, setActiveGroup]     = useState<GroupId | null>(null);
   const [activeCategory, setActiveCategory] = useState("all");
-  const [sort, setSort] = useState("default");
+  const [sort, setSort]                   = useState("default");
+
+  function handleGroupClick(id: GroupId) {
+    if (activeGroup === id) {
+      setActiveGroup(null);
+      setActiveCategory("all");
+    } else {
+      setActiveGroup(id);
+      setActiveCategory("all");
+    }
+  }
+
+  const groupCats = activeGroup
+    ? GROUPS.find((g) => g.id === activeGroup)!.categories
+    : null;
+
+  const byGroup = groupCats
+    ? products.filter((p) => groupCats.includes(p.category))
+    : products;
 
   const filtered = activeCategory === "all"
-    ? products
-    : products.filter((p) => p.category === activeCategory);
+    ? byGroup
+    : byGroup.filter((p) => p.category === activeCategory);
 
   const displayed = sortProducts(filtered, sort);
 
+  // Only show sub-category pills when a multi-category group is active
+  const activePills = activeGroup
+    ? groupCats!.length > 1
+      ? [{ label: "All", value: "all" }, ...ALL_PILLS.filter((p) => p.value !== "all" && groupCats!.includes(p.value))]
+      : null
+    : ALL_PILLS;
+
   return (
     <>
+      {/* Category group squares */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
+        {GROUPS.map(({ id, label, Icon, sub }) => {
+          const active = activeGroup === id;
+          return (
+            <button
+              key={id}
+              onClick={() => handleGroupClick(id)}
+              className={`flex flex-col items-center justify-center gap-3 rounded-2xl py-8 px-4 border-2 transition-all duration-200 cursor-pointer ${
+                active
+                  ? "bg-[#DC2626] border-[#DC2626] text-white"
+                  : "bg-[#0A0A0A] border-[#1F1F1F] text-white hover:border-[#DC2626]"
+              }`}
+            >
+              <div className={`w-14 h-14 rounded-full flex items-center justify-center ${active ? "bg-white/20" : "bg-white/10"}`}>
+                <Icon className="w-7 h-7" />
+              </div>
+              <div className="text-center">
+                <p className="font-bold text-base">{label}</p>
+                <p className={`text-xs mt-0.5 ${active ? "text-red-100" : "text-gray-500"}`}>{sub}</p>
+              </div>
+            </button>
+          );
+        })}
+      </div>
+
       {/* Toolbar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
 
-        {/* Category pills */}
-        <div className="flex flex-wrap gap-2">
-          {CATEGORIES.map((cat) => (
-            <button
-              key={cat.value}
-              onClick={() => setActiveCategory(cat.value)}
-              className={`px-4 py-2 rounded-full text-sm font-semibold border transition-colors ${
-                activeCategory === cat.value
-                  ? "bg-[#DC2626] border-[#DC2626] text-white"
-                  : "bg-white border-gray-200 text-gray-600 hover:border-[#DC2626] hover:text-[#DC2626]"
-              }`}
-            >
-              {cat.label}
-              {cat.value !== "all" && (
-                <span className="ml-1.5 text-xs opacity-60">
-                  ({products.filter((p) => p.category === cat.value).length})
-                </span>
-              )}
-            </button>
-          ))}
-        </div>
+        {/* Sub-category pills */}
+        {activePills && (
+          <div className="flex flex-wrap gap-2">
+            {activePills.map((cat) => (
+              <button
+                key={cat.value}
+                onClick={() => setActiveCategory(cat.value)}
+                className={`px-4 py-2 rounded-full text-sm font-semibold border transition-colors ${
+                  activeCategory === cat.value
+                    ? "bg-[#DC2626] border-[#DC2626] text-white"
+                    : "bg-white border-gray-200 text-gray-600 hover:border-[#DC2626] hover:text-[#DC2626]"
+                }`}
+              >
+                {cat.label}
+                {cat.value !== "all" && (
+                  <span className="ml-1.5 text-xs opacity-60">
+                    ({products.filter((p) => p.category === cat.value).length})
+                  </span>
+                )}
+              </button>
+            ))}
+          </div>
+        )}
 
         {/* Sort dropdown */}
-        <div className="relative shrink-0">
+        <div className="relative shrink-0 ml-auto">
           <select
             value={sort}
             onChange={(e) => setSort(e.target.value)}
