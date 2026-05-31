@@ -83,23 +83,23 @@ export default function ShopGrid({ products }: Props) {
   return (
     <>
       {/* Category group squares */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
-        {GROUPS.map(({ id, label, Icon, sub }) => {
+      <div className="flex flex-col items-center sm:flex-row sm:justify-center gap-3 mb-10">
+        {GROUPS.map(({ id, label, Icon }) => {
           const active = activeGroup === id;
           return (
             <button
               key={id}
               onClick={() => handleGroupClick(id)}
-              className={`flex flex-col items-center justify-center gap-2.5 rounded-2xl py-5 px-3 border-2 transition-all duration-200 cursor-pointer ${
+              className={`w-[146px] h-[146px] flex flex-col items-center justify-center gap-2 rounded-xl border-2 transition-all duration-200 cursor-pointer shrink-0 ${
                 active
                   ? "bg-[#DC2626] border-[#DC2626] text-white"
                   : "bg-[#0A0A0A] border-[#1F1F1F] text-white hover:border-[#DC2626]"
               }`}
             >
-              <div className={`w-16 h-16 rounded-full flex items-center justify-center ${active ? "bg-white/20" : "bg-white/10"}`}>
-                <Icon className="w-8 h-8" />
+              <div className={`w-11 h-11 rounded-full flex items-center justify-center ${active ? "bg-white/20" : "bg-white/10"}`}>
+                <Icon className="w-5 h-5" />
               </div>
-              <p className="font-bold text-xl">{label}</p>
+              <p className="font-bold text-sm">{label}</p>
             </button>
           );
         })}
