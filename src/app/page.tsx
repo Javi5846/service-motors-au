@@ -49,10 +49,6 @@ export default function HomePage() {
             Our Services
           </p>
           <ServicesCarousel />
-          <p className="text-gray-600 text-xs mt-6 text-center">
-            ¹ Pre-purchase inspection subject to{" "}
-            <a href="/terms" className="text-[#DC2626] hover:underline">terms &amp; conditions</a>.
-          </p>
         </div>
       </section>
 

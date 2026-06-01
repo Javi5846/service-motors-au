@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Droplets, CircleDot, ClipboardCheck, Zap } from "lucide-react";
+import { ChevronLeft, ChevronRight, Droplets, CircleDot, BatteryCharging, Zap } from "lucide-react";
 
 const services = [
   {
@@ -17,10 +17,10 @@ const services = [
       "Professional brake pad and rotor replacement to keep you safe on the road.",
   },
   {
-    icon: ClipboardCheck,
-    title: "Pre-Purchase Inspection¹",
+    icon: BatteryCharging,
+    title: "Battery Replacement",
     description:
-      "Thinking of buying a used car? We'll inspect it thoroughly so you know exactly what you're getting before you commit.",
+      "We supply and fit your new battery on the spot. Includes alternator check and parasitic drain test — for complete peace of mind.",
   },
   {
     icon: Zap,
