@@ -109,7 +109,7 @@ export default function HomePage() {
               href="https://wa.me/61433541686"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1da851] text-white font-semibold px-6 py-3 rounded transition-colors"
+              className="inline-flex items-center gap-2 bg-[#0A0A0A] hover:bg-[#1a1a1a] text-white font-semibold px-6 py-3 rounded transition-colors"
             >
               <Image src="/whatsapp.png" alt="WhatsApp" width={22} height={22} className="brightness-0 invert" />
               WhatsApp Us
