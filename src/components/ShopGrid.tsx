@@ -83,23 +83,33 @@ export default function ShopGrid({ products }: Props) {
   return (
     <>
       {/* Category group squares */}
-      <div className="flex flex-col items-center sm:flex-row sm:justify-center gap-3 mb-10">
+      <div className={`mb-8 ${
+        activeGroup
+          ? "flex flex-row overflow-x-auto gap-2 pb-1 sm:justify-center"
+          : "grid grid-cols-2 sm:flex sm:flex-row sm:justify-center gap-3"
+      }`}>
         {GROUPS.map(({ id, label, Icon }) => {
           const active = activeGroup === id;
           return (
             <button
               key={id}
               onClick={() => handleGroupClick(id)}
-              className={`w-[146px] h-[146px] flex flex-col items-center justify-center gap-2 rounded-xl border-2 transition-all duration-200 cursor-pointer shrink-0 ${
+              className={`flex flex-col items-center justify-center gap-2 rounded-xl border-2 transition-all duration-200 cursor-pointer shrink-0 ${
+                activeGroup
+                  ? "w-[90px] h-[90px]"
+                  : "h-[140px] sm:w-[146px] sm:h-[146px]"
+              } ${
                 active
                   ? "bg-[#DC2626] border-[#DC2626] text-white"
                   : "bg-[#0A0A0A] border-[#1F1F1F] text-white hover:border-[#DC2626]"
               }`}
             >
-              <div className={`w-11 h-11 rounded-full flex items-center justify-center ${active ? "bg-white/20" : "bg-white/10"}`}>
-                <Icon className="w-5 h-5" />
+              <div className={`rounded-full flex items-center justify-center ${
+                activeGroup ? "w-8 h-8" : "w-11 h-11"
+              } ${active ? "bg-white/20" : "bg-white/10"}`}>
+                <Icon className={activeGroup ? "w-4 h-4" : "w-5 h-5"} />
               </div>
-              <p className="font-bold text-sm">{label}</p>
+              <p className={`font-bold ${activeGroup ? "text-xs" : "text-sm"}`}>{label}</p>
             </button>
           );
         })}
