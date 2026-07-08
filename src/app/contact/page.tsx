@@ -119,6 +119,17 @@ export default function ContactPage() {
           </div>
         </div>
 
+        {/* No physical garage notice */}
+        <div className="flex items-start gap-3 bg-amber-50 border border-amber-200 rounded-xl px-5 py-4 mb-6">
+          <span className="text-amber-500 text-xl shrink-0">📍</span>
+          <div>
+            <p className="font-semibold text-amber-800 text-sm">We don&apos;t have a physical garage</p>
+            <p className="text-amber-700 text-sm mt-0.5">
+              Service Motors AU is a fully mobile service — we come to your home, workplace, or any convenient location across Sydney. No need to visit us.
+            </p>
+          </div>
+        </div>
+
         {/* Google Maps */}
         <div className="rounded-2xl overflow-hidden border border-gray-100 shadow-md">
           <iframe
