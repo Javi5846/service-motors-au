@@ -303,10 +303,10 @@ export const products: Product[] = [
   },
   {
     id: "HU7012z",
-    name: "MANN Filter HU 7012 z",
+    name: "MANN Filter HU 7012z",
     shortDescription: "Tall cartridge oil filter for Audi, VW and more.",
     description:
-      "The MANN-FILTER HU 7012 z is a high-quality cartridge oil filter built for demanding diesel and petrol engines across the Audi, VW and other European brands. Its extended height provides superior filtration capacity, reliably protecting the engine from contaminants.",
+      "The MANN-FILTER HU 7012z is a high-quality cartridge oil filter built for demanding diesel and petrol engines across the Audi, VW and other European brands. Its extended height provides superior filtration capacity, reliably protecting the engine from contaminants.",
     price: 29,
     category: "Oil Filter",
     inStock: true,
@@ -314,7 +314,7 @@ export const products: Product[] = [
     images: ["/products/HU7012z.png", "/products/HU7012z-dims.png"],
     specs: [
       { label: "Brand", value: "MANN-FILTER" },
-      { label: "Part Number", value: "HU 7012 z" },
+      { label: "Part Number", value: "HU 7012z" },
       { label: "Filter Type", value: "Cartridge Oil Filter" },
       { label: "Dimensions", value: "A = 64 mm | B = 31 mm | C = 31 mm | H = 123 mm" },
       { label: "Includes", value: "Sealing ring" },
