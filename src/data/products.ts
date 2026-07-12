@@ -575,6 +575,33 @@ export const products: Product[] = [
     ],
   },
   {
+    id: "HU7002z",
+    name: "MANN Filter HU 7002z",
+    shortDescription: "Spin-on oil filter for Ford Ranger, Everest, Mazda BT-50 II and VW Amarok II.",
+    description:
+      "The MANN-FILTER HU 7002z is a high-quality spin-on oil filter designed for modern Ford, Mazda and Volkswagen engines. Compatible with the Ford Ranger PX/PY and Everest, Mazda BT-50 II and the latest VW Amarok II — providing reliable engine protection across all conditions.",
+    price: 25,
+    category: "Oil Filter",
+    inStock: true,
+    image: "/products/HU7002z.png",
+    images: ["/products/HU7002z.png", "/products/HU7002z-2.png"],
+    specs: [
+      { label: "Brand", value: "MANN-FILTER" },
+      { label: "Part Number", value: "HU 7002z" },
+      { label: "Filter Type", value: "Spin-on Oil Filter" },
+      { label: "Dimensions", value: "A = 64 mm | B = 31 mm | C = 31 mm | H = 69 mm" },
+      { label: "OEM Quality", value: "Yes" },
+    ],
+    compatible: [
+      "Ford Everest (selected models/engines)",
+      "Ford Ranger PX (selected models/engines)",
+      "Ford Ranger PY (selected models/engines)",
+      "Ford Ranger TRA / TRB (selected models/engines)",
+      "Mazda BT-50 II (selected models/engines)",
+      "Volkswagen Amarok II T1A / T1B (selected models/engines)",
+    ],
+  },
+  {
     id: "liqui-moly-leichtlauf-5w40",
     name: "LIQUI MOLY Leichtlauf High Tech 5W-40 5L",
     shortDescription: "Premium synthetic 5W-40 motor oil for petrol and diesel engines without DPF. Up to 40,000 km oil change intervals.",
