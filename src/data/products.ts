@@ -665,4 +665,33 @@ export const products: Product[] = [
       "Volkswagen Amarok II T1A / T1B (selected models/engines)",
     ],
   },
+  {
+    id: "HU816x",
+    name: "MANN Filter HU 816x",
+    shortDescription: "Spin-on oil filter for BMW 1, 3, 5, 7 Series, X1 and X4 engines.",
+    description:
+      "The MANN-FILTER HU 816x is a high-quality spin-on oil filter designed for a wide range of BMW petrol and diesel engines. Compatible with the popular BMW 1, 3, 5 and 7 Series across multiple generations, as well as the X1 and X4 — providing reliable engine protection and filtration performance.",
+    price: 20,
+    category: "Oil Filter",
+    inStock: true,
+    image: "/products/HU816x.png",
+    images: ["/products/HU816x.png", "/products/HU816x-2.png"],
+    specs: [
+      { label: "Brand", value: "MANN-FILTER" },
+      { label: "Part Number", value: "HU 816x" },
+      { label: "Filter Type", value: "Spin-on Oil Filter" },
+      { label: "Dimensions", value: "A = 74 mm | B = 41 mm | C = 41 mm | H = 79 mm" },
+      { label: "OEM Quality", value: "Yes" },
+    ],
+    compatible: [
+      "BMW 1 Series E81 / E82 / E87 / E88 (selected models/engines)",
+      "BMW 3 Series E90 / E91 / E92 / E93 (selected models/engines)",
+      "BMW 3 Series F30 / F31 / F80 (selected models/engines)",
+      "BMW 5 Series E60 / E61 (selected models/engines)",
+      "BMW 5 Series F10 / F11 / F18 (selected models/engines)",
+      "BMW 7 Series F01 / F02 / F03 / F04 (selected models/engines)",
+      "BMW X1 E84 (selected models/engines)",
+      "BMW X4 F26 (selected models/engines)",
+    ],
+  },
 ];
