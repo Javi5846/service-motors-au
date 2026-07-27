@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ChevronDown, Filter, Droplets, Cog, Package, LayoutGrid } from "lucide-react";
+import { ArrowRight, ChevronDown, Filter, Droplets, Cog, Package, LayoutGrid, Search, X } from "lucide-react";
 import type { Product } from "@/data/products";
 
 type GroupId = "all" | "filters" | "oil" | "belts" | "other";
@@ -15,11 +15,11 @@ const GROUPS: Array<{
   categories: string[] | null;
   sub: string;
 }> = [
-  { id: "all",     label: "All",          Icon: LayoutGrid, categories: null,                                              sub: "All products" },
-  { id: "filters", label: "Filters",      Icon: Filter,     categories: ["Oil Filter", "Air Filter", "Cabin Filter"],     sub: "Oil · Air · Cabin" },
-  { id: "oil",     label: "Oil",          Icon: Droplets,   categories: ["Oil"],                                           sub: "Engine & synthetic" },
-  { id: "belts",   label: "Belts & Kits", Icon: Cog,        categories: ["Drive Belts"],                                   sub: "V-ribbed & timing" },
-  { id: "other",   label: "Other",        Icon: Package,    categories: ["Other"],                                         sub: "Accessories & more" },
+  { id: "all",     label: "All",          Icon: LayoutGrid, categories: null,                                          sub: "All products" },
+  { id: "filters", label: "Filters",      Icon: Filter,     categories: ["Oil Filter", "Air Filter", "Cabin Filter"], sub: "Oil · Air · Cabin" },
+  { id: "oil",     label: "Oil",          Icon: Droplets,   categories: ["Oil"],                                       sub: "Engine & synthetic" },
+  { id: "belts",   label: "Belts & Kits", Icon: Cog,        categories: ["Drive Belts"],                               sub: "V-ribbed & timing" },
+  { id: "other",   label: "Other",        Icon: Package,    categories: ["Other"],                                     sub: "Accessories & more" },
 ];
 
 const FILTER_PILLS = [
@@ -42,6 +42,23 @@ interface Props {
   products: Product[];
 }
 
+// Strip spaces, slashes, dashes and lowercase — so "H U 7002", "HU7002", "HU-7002" all match
+function normalise(str: string) {
+  return str.replace(/[\s\-\/]/g, "").toLowerCase();
+}
+
+function matchesSearch(product: Product, query: string): boolean {
+  const q = normalise(query);
+  if (!q) return true;
+  const fields = [
+    product.name,
+    product.shortDescription,
+    product.category,
+    ...product.specs.map((s) => s.value),
+  ];
+  return fields.some((f) => normalise(f).includes(q));
+}
+
 function sortProducts(products: Product[], sort: string): Product[] {
   const copy = [...products];
   switch (sort) {
@@ -58,72 +75,105 @@ export default function ShopGrid({ products }: Props) {
   const [activeGroup, setActiveGroup]       = useState<GroupId | null>(null);
   const [activeCategory, setActiveCategory] = useState("all");
   const [sort, setSort]                     = useState("default");
+  const [search, setSearch]                 = useState("");
+
+  const isSearching = search.trim().length > 0;
 
   function handleGroupClick(id: GroupId) {
     setActiveGroup(id);
     setActiveCategory("all");
+    setSearch("");
   }
 
-  const group = activeGroup ? GROUPS.find((g) => g.id === activeGroup)! : null;
+  function clearSearch() {
+    setSearch("");
+  }
 
+  // Search mode: all products, no category filter
+  const searchResults = isSearching
+    ? sortProducts(products.filter((p) => matchesSearch(p, search)), sort)
+    : [];
+
+  // Category mode
+  const group = activeGroup ? GROUPS.find((g) => g.id === activeGroup)! : null;
   const byGroup = group
     ? group.categories
       ? products.filter((p) => group.categories!.includes(p.category))
       : products
     : [];
-
   const filtered = activeCategory === "all"
     ? byGroup
     : byGroup.filter((p) => p.category === activeCategory);
+  const displayed = isSearching ? searchResults : sortProducts(filtered, sort);
 
-  const displayed = sortProducts(filtered, sort);
-
-  const showFilterPills = activeGroup === "filters";
+  const showFilterPills = !isSearching && activeGroup === "filters";
 
   return (
     <>
-      {/* Category group squares */}
-      <div className={`mb-8 ${
-        activeGroup
-          ? "flex flex-row overflow-x-auto gap-2 pb-1 sm:justify-center"
-          : "grid grid-cols-2 sm:flex sm:flex-row sm:justify-center gap-3"
-      }`}>
-        {GROUPS.map(({ id, label, Icon }) => {
-          const active = activeGroup === id;
-          return (
-            <button
-              key={id}
-              onClick={() => handleGroupClick(id)}
-              className={`flex flex-col items-center justify-center gap-2 rounded-xl border-2 transition-all duration-200 cursor-pointer shrink-0 ${
-                activeGroup
-                  ? "w-[90px] h-[90px]"
-                  : "h-[140px] sm:w-[146px] sm:h-[146px]"
-              } ${
-                active
-                  ? "bg-[#DC2626] border-[#DC2626] text-white"
-                  : "bg-[#0A0A0A] border-[#1F1F1F] text-white hover:border-[#DC2626]"
-              }`}
-            >
-              <div className={`rounded-full flex items-center justify-center ${
-                activeGroup ? "w-8 h-8" : "w-11 h-11"
-              } ${active ? "bg-white/20" : "bg-white/10"}`}>
-                <Icon className={activeGroup ? "w-4 h-4" : "w-5 h-5"} />
-              </div>
-              <p className={`font-bold ${activeGroup ? "text-xs" : "text-sm"}`}>{label}</p>
-            </button>
-          );
-        })}
+      {/* Search bar */}
+      <div className="relative mb-8">
+        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+        <input
+          type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Search by part number or name... e.g. HU7002, W712/95"
+          className="w-full pl-11 pr-10 py-3 rounded-xl border border-gray-200 text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-[#DC2626] transition-colors"
+        />
+        {isSearching && (
+          <button
+            onClick={clearSearch}
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#DC2626] transition-colors"
+          >
+            <X className="w-4 h-4" />
+          </button>
+        )}
       </div>
 
-      {/* Nothing selected yet */}
-      {!activeGroup && (
+      {/* Category group squares — hidden while searching */}
+      {!isSearching && (
+        <div className={`mb-8 ${
+          activeGroup
+            ? "flex flex-row overflow-x-auto gap-2 pb-1 sm:justify-center"
+            : "grid grid-cols-2 sm:flex sm:flex-row sm:justify-center gap-3"
+        }`}>
+          {GROUPS.map(({ id, label, Icon }) => {
+            const active = activeGroup === id;
+            return (
+              <button
+                key={id}
+                onClick={() => handleGroupClick(id)}
+                className={`flex flex-col items-center justify-center gap-2 rounded-xl border-2 transition-all duration-200 cursor-pointer shrink-0 ${
+                  activeGroup
+                    ? "w-[90px] h-[90px]"
+                    : "h-[140px] sm:w-[146px] sm:h-[146px]"
+                } ${
+                  active
+                    ? "bg-[#DC2626] border-[#DC2626] text-white"
+                    : "bg-[#0A0A0A] border-[#1F1F1F] text-white hover:border-[#DC2626]"
+                }`}
+              >
+                <div className={`rounded-full flex items-center justify-center ${
+                  activeGroup ? "w-8 h-8" : "w-11 h-11"
+                } ${active ? "bg-white/20" : "bg-white/10"}`}>
+                  <Icon className={activeGroup ? "w-4 h-4" : "w-5 h-5"} />
+                </div>
+                <p className={`font-bold ${activeGroup ? "text-xs" : "text-sm"}`}>{label}</p>
+              </button>
+            );
+          })}
+        </div>
+      )}
+
+      {/* Nothing selected and not searching */}
+      {!activeGroup && !isSearching && (
         <p className="text-center text-gray-400 py-16 text-sm">
-          Select a category above to browse products.
+          Select a category above or search for a product.
         </p>
       )}
 
-      {/* Products section — only when a group is selected */}
-      {activeGroup && (
+      {/* Products section */}
+      {(activeGroup || isSearching) && (
         <>
           {/* Toolbar */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
@@ -168,14 +218,21 @@ export default function ShopGrid({ products }: Props) {
 
           {/* Results count */}
           <p className="text-sm text-gray-400 mb-6">
-            {displayed.length} {displayed.length === 1 ? "product" : "products"}
+            {isSearching
+              ? `${displayed.length} ${displayed.length === 1 ? "result" : "results"} for "${search.trim()}"`
+              : `${displayed.length} ${displayed.length === 1 ? "product" : "products"}`
+            }
           </p>
 
           {/* Grid */}
           {displayed.length === 0 ? (
             <div className="text-center py-20 text-gray-400">
-              <p className="text-lg font-semibold mb-2">No products in this category yet</p>
-              <p className="text-sm">Check back soon or contact us directly.</p>
+              <p className="text-lg font-semibold mb-2">
+                {isSearching ? "No products found" : "No products in this category yet"}
+              </p>
+              <p className="text-sm">
+                {isSearching ? "Try a different search term." : "Check back soon or contact us directly."}
+              </p>
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
