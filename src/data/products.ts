@@ -701,7 +701,7 @@ export const products: Product[] = [
     description:
       "The Bosch AP605 (1 987 474 505) is a high-quality brake pad wear sensor for the front axle. It alerts the driver via the dashboard warning light when the brake pads reach their wear limit, helping ensure timely pad replacement and safe braking performance. Should be replaced every time new brake pads are fitted.",
     price: 12,
-    category: "Brake Parts",
+    category: "Brakes",
     inStock: true,
     image: "/products/AP605.png",
     images: ["/products/AP605.png", "/products/AP605-2.png"],

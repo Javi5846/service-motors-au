@@ -13,6 +13,7 @@ const CATEGORIES = [
   { label: "Cabin Filters", value: "Cabin Filter" },
   { label: "Oil",           value: "Oil" },
   { label: "Belts & Kits",  value: "Drive Belts" },
+  { label: "Brakes",        value: "Brakes" },
   { label: "Other",         value: "Other" },
 ];
 
